@@ -16,10 +16,8 @@ import axios from "axios";
 export default function SideBar() {
   const logout = async () => {
     try {
-      await axios.get("/api/users/logout-user", {
-        withCredentials: true,
-      });
-      window.location.reload();
+      await axios.get("/api/users/logout-user");
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
