@@ -17,7 +17,7 @@ export default function SideBar() {
   const logout = async () => {
     try {
       await axios.get("/api/users/logout-user");
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
