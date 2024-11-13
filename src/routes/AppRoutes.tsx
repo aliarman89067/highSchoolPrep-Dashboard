@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
 
 function Layout() {
   const loginSchema = z.object({
@@ -41,6 +42,7 @@ function Layout() {
   const [customError, setCustomError] = useState<string>("");
   const { pathname } = useLocation();
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get("/api/users/check-admin")
       .then(({ data }) => {
@@ -55,12 +57,18 @@ function Layout() {
         setIsAdmin(false);
       })
       .finally(() => {
-        setIsLoading(false); // Set loading to false once the API call is complete
+        setIsLoading(false);
       });
   }, [pathname]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show loading while checking admin status
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="text-bsae text-gray-700 flex items-center gap-1">
+          Loading <Loader2 className="w-4 h-4 text-gray-700 animate-spin" />
+        </p>
+      </div>
+    );
   }
 
   const onSubmit = async (values: LoginSchema) => {
