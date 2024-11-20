@@ -3,6 +3,7 @@ import UserPageChart from "@/components/UserPageChart";
 import UserPageList from "@/components/UserPageList";
 import { useState } from "react";
 import { UsersChartData, UserType } from "./utils/type";
+import TotalNumberCards from "@/components/TotalNumberCards";
 
 export default function UsersPage() {
   const [data, setData] = useState<null | UserType>(null);
@@ -10,6 +11,7 @@ export default function UsersPage() {
 
   return (
     <MaxWidthWrapper classNames="mt-10 px-5">
+      <TotalNumberCards />
       <UserPageChart
         usersData={usersData}
         setUsersData={setUsersData}

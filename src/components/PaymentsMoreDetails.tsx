@@ -13,7 +13,6 @@ type Props = {
 };
 export default function PaymentsMoreDetails({ data }: Props) {
   if (!data) return;
-  console.log(data);
 
   const formatDate = (date: Date) => {
     const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Get month and add leading zero
