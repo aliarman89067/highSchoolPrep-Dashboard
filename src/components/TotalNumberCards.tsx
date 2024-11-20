@@ -63,7 +63,7 @@ export default function TotalNumberCards() {
               setSortName={setSortName}
             />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             <Card className="hover:shadow-lg hover:bg-gray-50 transition-all">
               <CardHeader>
                 <CardTitle>Total No of User</CardTitle>
